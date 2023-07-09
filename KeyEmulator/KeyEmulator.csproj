@@ -36,6 +36,8 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MouseWorker\MouseEventFlags.cs" />
+    <Compile Include="MouseWorker\WorkerWithMouse.cs" />
     <Compile Include="WinAPI.cs" />
     <Compile Include="ForPostMessage\VirtualKeys.cs" />
     <Compile Include="ForPostMessage\VK.cs" />

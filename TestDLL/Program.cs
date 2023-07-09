@@ -15,10 +15,7 @@ namespace TestDLL
             IntPtr hWnd = WorkerWithWindows.GetDesktopWindow();
             RECT rect = new RECT();
             WorkerWithWindows.GetWindowRect(hWnd, out rect);
-            int width = rect.right - rect.left;
-            int height = rect.bottom - rect.top;
-
-
+            
             WinAPI.MouseMove(rect.right -170, rect.bottom -125);
         }
     }
