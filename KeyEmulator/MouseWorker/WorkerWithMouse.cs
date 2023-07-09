@@ -8,7 +8,7 @@ using KeyEmulator.WindowWorkers;
 
 namespace KeyEmulator.MouseWorker
 {
-    internal class WorkerWithMouse
+    public class WorkerWithMouse
     {
         #region function imports
         [DllImport("user32")]
@@ -34,7 +34,7 @@ namespace KeyEmulator.MouseWorker
         /// </summary>
         /// <param name="button">which button to press (left middle up)</param>
         /// <param name="windowName">the window to send to</param>
-        public static void MouseClick(string button, string windowName)
+        public static void MouseClick(MouseButtons button, string windowName)
         {
             if (WorkerWithWindows.WindowActive(windowName))
                 MouseClick(button);
@@ -44,39 +44,39 @@ namespace KeyEmulator.MouseWorker
         /// </summary>
         /// <param name="button"></param>
         /// <param name="state"></param>
-        public static void MouseClick(string button, int state)
+        public static void MouseClick(MouseButtons button, MouseState state)
         {
-            switch (button.ToLower())
+            switch (button)
             {
-                case "left":
+                case MouseButtons.left:
                     switch (state)
                     {
-                        case 1:
+                        case MouseState.up:
                             mouse_event((uint)MouseEventFlags.LEFTUP, 0, 0, 0, 0);
                             break;
-                        case 0:
+                        case MouseState.down:
                             mouse_event((uint)MouseEventFlags.LEFTDOWN, 0, 0, 0, 0);
                             break;
                     }
                     break;
-                case "right":
+                case MouseButtons.right:
                     switch (state)
                     {
-                        case 1:
+                        case MouseState.up:
                             mouse_event((uint)MouseEventFlags.RIGHTUP, 0, 0, 0, 0);
                             break;
-                        case 0:
+                        case MouseState.down:
                             mouse_event((uint)MouseEventFlags.RIGHTDOWN, 0, 0, 0, 0);
                             break;
                     }
                     break;
-                case "middle":
+                case MouseButtons.middle:
                     switch (state)
                     {
-                        case 1:
+                        case MouseState.up:
                             mouse_event((uint)MouseEventFlags.MIDDLEUP, 0, 0, 0, 0);
                             break;
-                        case 0:
+                        case MouseState.down:
                             mouse_event((uint)MouseEventFlags.MIDDLEDOWN, 0, 0, 0, 0);
                             break;
                     }
@@ -88,21 +88,21 @@ namespace KeyEmulator.MouseWorker
         /// simulates a mouse click see http://pinvoke.net/default.aspx/user32/mouse_event.html?diff=y
         /// </summary>
         /// <param name="button">which button to press (left middle up)</param>
-        public static void MouseClick(string button)
+        public static void MouseClick(MouseButtons button)
         {
             switch (button)
             {
-                case "left":
-                    mouse_event((uint)MouseEventFlags.LEFTDOWN, 0, 0, 0, 0);
-                    mouse_event((uint)MouseEventFlags.LEFTUP, 0, 0, 0, 0);
+                case MouseButtons.left:
+                    MouseClick(button, MouseState.down);
+                    MouseClick(button, MouseState.up);
                     break;
-                case "right":
-                    mouse_event((uint)MouseEventFlags.RIGHTDOWN, 0, 0, 0, 0);
-                    mouse_event((uint)MouseEventFlags.RIGHTUP, 0, 0, 0, 0);
+                case MouseButtons.right:
+                    MouseClick(button, MouseState.down);
+                    MouseClick(button, MouseState.up);
                     break;
-                case "middle":
-                    mouse_event((uint)MouseEventFlags.MIDDLEDOWN, 0, 0, 0, 0);
-                    mouse_event((uint)MouseEventFlags.MIDDLEUP, 0, 0, 0, 0);
+                case MouseButtons.middle:
+                    MouseClick(button, MouseState.down);
+                    MouseClick(button, MouseState.up);
                     break;
             }
         }

@@ -38,7 +38,6 @@
   <ItemGroup>
     <Compile Include="MouseWorker\MouseEventFlags.cs" />
     <Compile Include="MouseWorker\WorkerWithMouse.cs" />
-    <Compile Include="WinAPI.cs" />
     <Compile Include="ForPostMessage\VirtualKeys.cs" />
     <Compile Include="ForPostMessage\VK.cs" />
     <Compile Include="ForPostMessage\WM.cs" />
@@ -52,6 +51,8 @@
     <Compile Include="KeyEmul.cs" />
     <Compile Include="ProcessFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WindowWorkers\MouseState.cs" />
+    <Compile Include="WindowWorkers\MouseButtons.cs" />
     <Compile Include="WindowWorkers\RECT.cs" />
     <Compile Include="WindowWorkers\WorkerWithWindows.cs" />
   </ItemGroup>
