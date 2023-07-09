@@ -173,8 +173,44 @@ namespace KeyboardEmulator
 
             SendInput((uint)inputs.Length, inputs, Marshal.SizeOf(typeof(Input)));
         }
+        public void SendInput(VirtualKeyShort firstKey)
+        {
+            Input[] inputs = new Input[]
+            {
+                new Input
+                {
+                    type = InputType.INPUT_KEYBOARD,
+                    U = new InputUnion
+                    {
+                        ki = new KEYBDINPUT
+                        {
+                            wVk = firstKey,
+                            wScan = 0, // W
+                            dwFlags = (KeyEventF.KeyDown | KeyEventF.Scancode),
+                            dwExtraInfo = GetMessageExtraInfo()
+                        }
+                    }
+                },
+                new Input
+                {
+                    type = InputType.INPUT_KEYBOARD,
+                    U = new InputUnion
+                    {
+                        ki = new KEYBDINPUT()
+                        {
+                            wVk = firstKey,
+                            wScan = 0, // W
+                            dwFlags = (KeyEventF.KeyUp | KeyEventF.Scancode),
+                            dwExtraInfo = GetMessageExtraInfo()
+                        }
+                    }
+                },
+            };
 
-       
+            SendInput((uint)inputs.Length, inputs, Marshal.SizeOf(typeof(Input)));
+        }
+
+
 
         /// <summary>
         /// Эмулирует последовательное нажатие клавиш клавиатуры

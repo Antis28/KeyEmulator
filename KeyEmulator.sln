@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyEmulator", "KeyEmulator\KeyEmulator.csproj", "{EE82DDB2-6947-4143-ACA2-ED60A9C01000}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDLL", "TestDLL\TestDLL.csproj", "{7E198714-AD7D-45D9-999B-FD90A0D2ED3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +17,15 @@ Global
 		{EE82DDB2-6947-4143-ACA2-ED60A9C01000}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE82DDB2-6947-4143-ACA2-ED60A9C01000}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE82DDB2-6947-4143-ACA2-ED60A9C01000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E198714-AD7D-45D9-999B-FD90A0D2ED3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E198714-AD7D-45D9-999B-FD90A0D2ED3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E198714-AD7D-45D9-999B-FD90A0D2ED3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E198714-AD7D-45D9-999B-FD90A0D2ED3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCFBEB6C-C7C0-415D-A75A-6C1A81AFD581}
 	EndGlobalSection
 EndGlobal
