@@ -16,6 +16,13 @@ namespace KeyEmulator.MouseWorker
 
         [DllImport("user32.dll")]
         static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, int dwExtraInfo);
+
+        /// <summary>
+        /// Retrieves the cursor's position, in screen coordinates.
+        /// </summary>
+        /// <see>See MSDN documentation for further information.</see>
+        [DllImport("user32.dll")]
+        public static extern bool GetCursorPos(out PointInter lpPoint);       
         #endregion
 
         #region static methods
@@ -107,6 +114,22 @@ namespace KeyEmulator.MouseWorker
             }
         }
 
+
+        /// <summary>
+        /// Получаеи координаты мыши на экране
+        /// https://stackoverflow.com/questions/1316681/getting-mouse-position-in-c-sharp
+        /// </summary>
+        /// <returns></returns>
+        public static PointInter GetCursorPosition()
+        {
+            PointInter lpPoint;
+            GetCursorPos(out lpPoint);
+            // NOTE: If you need error handling
+            // bool success = GetCursorPos(out lpPoint);
+            // if (!success)
+
+            return lpPoint;
+        }
         #endregion
     }
 }
